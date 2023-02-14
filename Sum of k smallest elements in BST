@@ -1,0 +1,23 @@
+class Tree {
+    //create inorder list of bst 
+
+    void inorder(Node root,ArrayList<Integer> ans){
+        if(root==null)return;
+        inorder(root.left,ans);
+        ans.add(root.data);
+        inorder(root.right,ans);
+    }
+    int sum(Node root, int k) { 
+       ArrayList<Integer> ans=new ArrayList<>(); 
+       inorder(root,ans);
+       int sum=0;
+       //taking loop for k and adding them as inorder list is sorted
+       
+       for(int i=0;i<k;i++){
+           sum=sum+ans.get(i);
+       }
+       return sum;
+       
+        
+    } 
+}
